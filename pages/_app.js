@@ -1,3 +1,4 @@
+import { CartContextProvider } from "@/components/CartContext";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
@@ -19,7 +20,10 @@ export default function App({ Component, pageProps }) {
     <>
       <style dangerouslySetInnerHTML={{ __html: fontLink }} />
       <GlobalStyles />
-      <Component {...pageProps} />
+      <CartContextProvider>
+        <Component {...pageProps} />
+      </CartContextProvider>
+    
     </>
   );
 }
